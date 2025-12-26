@@ -58,6 +58,59 @@ body {
     font-size: 1.5rem;
     font-weight: 700;
     color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.logo:hover {
+    color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.portfolio-tabs {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.portfolio-tab {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-light);
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    display: inline-block;
+    transform: scale(1);
+}
+
+.portfolio-tab:hover {
+    color: #a78bfa; /* Açık mor renk */
+    transform: scale(1.15);
+    text-shadow: 0 2px 8px rgba(167, 139, 250, 0.3);
+}
+
+.portfolio-tab.active {
+    color: var(--primary-color);
+}
+
+.portfolio-tab.active:hover {
+    color: #a78bfa;
+    transform: scale(1.15);
+}
+
+.tab-separator {
+    color: var(--text-light);
+    font-weight: 300;
+    margin: 0 0.25rem;
+    transition: opacity 0.3s ease;
+}
+
+.portfolio-tabs:hover .tab-separator {
+    opacity: 0.6;
 }
 
 .nav-menu {
@@ -143,10 +196,30 @@ body {
     justify-content: center;
     text-align: center;
     padding: 120px 20px 60px;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); /* Fallback gradient */
     color: white;
     position: relative;
     overflow: hidden;
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Koyu overlay - videoyu daha okunabilir yapar */
+    z-index: 1;
 }
 
 .hero::before {
@@ -162,7 +235,7 @@ body {
 
 .hero-content {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     max-width: 800px;
 }
 
@@ -171,6 +244,17 @@ body {
     font-weight: 700;
     margin-bottom: 1rem;
     animation: fadeInUp 0.8s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.hero-title-line {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 .hero-subtitle {
@@ -234,6 +318,7 @@ body {
     transform: translateX(-50%);
     animation: bounce 2s infinite;
     cursor: pointer;
+    z-index: 2;
 }
 
 @keyframes fadeInUp {
@@ -533,6 +618,7 @@ section {
     position: relative;
     max-width: 900px;
     margin: 0 auto;
+    will-change: transform; /* Performance optimization */
 }
 
 .timeline::before {
@@ -551,6 +637,8 @@ section {
     margin-bottom: 3rem;
     display: flex;
     align-items: flex-start;
+    will-change: transform, opacity; /* Performance optimization */
+    transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .timeline-item:nth-child(odd) {
@@ -582,6 +670,8 @@ section {
     border-radius: 12px;
     box-shadow: var(--shadow);
     position: relative;
+    transform: translateZ(0); /* Force GPU acceleration */
+    will-change: transform; /* Performance optimization */
 }
 
 .timeline-title {
@@ -760,6 +850,30 @@ section {
     min-height: 120px;
 }
 
+.form-message {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.form-message.success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 2px solid #10b981;
+}
+
+.form-message.error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 2px solid #ef4444;
+}
+
+#submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 /* Footer */
 .footer {
     background: var(--text-color);
@@ -780,6 +894,20 @@ section {
 
 /* Responsive Design */
 @media (max-width: 968px) {
+    .portfolio-tabs {
+        font-size: 1.2rem;
+        gap: 0.25rem;
+    }
+    
+    .portfolio-tab {
+        font-size: 1.2rem;
+        padding: 0.2rem 0.4rem;
+    }
+    
+    .tab-separator {
+        margin: 0 0.15rem;
+    }
+    
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -802,6 +930,10 @@ section {
     }
 
     .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .hero-title-line {
         font-size: 2.5rem;
     }
 
@@ -845,7 +977,20 @@ section {
 }
 
 @media (max-width: 640px) {
+    .portfolio-tabs {
+        font-size: 1rem;
+    }
+    
+    .portfolio-tab {
+        font-size: 1rem;
+        padding: 0.15rem 0.3rem;
+    }
+    
     .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-title-line {
         font-size: 2rem;
     }
 

@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mert Kaan Arslan - Portfolio</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+    <link rel="manifest" href="favicon/site.webmanifest">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -12,13 +17,22 @@
     <nav class="navbar">
         <div class="container">
             <div class="nav-wrapper">
-                <div class="logo">Portfolio</div>
+                <div class="portfolio-tabs">
+                    <a href="index.html" class="portfolio-tab active">
+                        <span class="lang-en">Coding</span>
+                        <span class="lang-tr" style="display: none;">Kodlama</span>
+                    </a>
+                    <span class="tab-separator">|</span>
+                    <a href="design.html" class="portfolio-tab">
+                        <span class="lang-en">Design</span>
+                        <span class="lang-tr" style="display: none;">Tasarım</span>
+                    </a>
+                </div>
                 <ul class="nav-menu">
                     <li><a href="#home" class="nav-link">Home</a></li>
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#skills" class="nav-link">Skills</a></li>
                     <li><a href="#projects" class="nav-link">Projects</a></li>
-                    <li><a href="design.html" class="nav-link">Design Portfolio</a></li>
                     <li><a href="#experience" class="nav-link">Experience</a></li>
                     <li><a href="#education" class="nav-link">Education</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -38,28 +52,30 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="videos/hero-background.mp4" type="video/mp4">
+            <source src="videos/hero-background.webm" type="video/webm">
+            <!-- Fallback: Eğer video yüklenemezse gradient gösterilir -->
+        </video>
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">
-                    <span class="lang-en">Hi, I'm Mert Kaan Arslan</span>
+                    <span class="lang-en">I'm Mert Kaan Arslan.</span>
                     <span class="lang-tr" style="display: none;">Merhaba, Ben Mert Kaan Arslan</span>
                 </h1>
                 <p class="hero-subtitle">
-                    <span class="lang-en">Instructional Technology Specialist & Educator</span>
-                    <span class="lang-tr" style="display: none;">Öğretim Teknolojileri Uzmanı & Eğitimci</span>
+                    <span class="lang-en">Instructional Technology Specialist & Designer</span>
+                    <span class="lang-tr" style="display: none;">Öğretim Teknolojileri Uzmanı & Tasarımcı</span>
                 </p>
                 <p class="hero-description">
-                    <span class="lang-en">Passionate about educational technology, coding education, and creating innovative learning experiences. Combining technical expertise with pedagogical knowledge to transform education.</span>
-                    <span class="lang-tr" style="display: none;">Eğitim teknolojileri, kodlama eğitimi ve yenilikçi öğrenme deneyimleri oluşturma konusunda tutkulu. Teknik uzmanlığı pedagojik bilgiyle birleştirerek eğitimi dönüştürüyorum.</span>
+                    <span class="lang-en">Passionate about technology, coding, and creating.</span>
+                    <span class="lang-tr" style="display: none;"> Teknoloji, kodlama ve yaratma konusunda tutkuluyum.</span>
                 </p>
                 <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <span class="lang-en">View My Work</span>
-                        <span class="lang-tr" style="display: none;">Çalışmalarımı Gör</span>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <span class="lang-en">Get In Touch</span>
-                        <span class="lang-tr" style="display: none;">İletişime Geç</span>
+                    <a href="#about" class="btn btn-primary">
+                        <span class="lang-en">Explore</span>
+                        <span class="lang-tr" style="display: none;">Keşfet</span>
                     </a>
                 </div>
             </div>
@@ -329,6 +345,27 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <div class="project-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="project-title">
+                        <span class="lang-en">Flappy Bird 3D</span>
+                        <span class="lang-tr" style="display: none;">Flappy Bird 3D</span>
+                    </h3>
+                    <p class="project-description lang-en">
+                        A 3D recreation of the classic Flappy Bird game developed in Unity. Features modern 3D graphics, smooth gameplay mechanics, and an engaging user experience. Built with Unity 3D engine and C# scripting.
+                    </p>
+                    <p class="project-description lang-tr" style="display: none;">
+                        Unity'de geliştirilmiş klasik Flappy Bird oyununun 3D yeniden yaratımı. Modern 3D grafikler, akıcı oyun mekaniği ve etkileyici kullanıcı deneyimi sunar. Unity 3D motoru ve C# scriptleme ile geliştirilmiştir.
+                    </p>
+                    <div class="project-tags">
+                        <span class="tag">Unity 3D</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">Game Development</span>
+                        <span class="tag">3D Graphics</span>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-icon">
                         <i class="fas fa-palette"></i>
                     </div>
                     <h3 class="project-title">
@@ -413,7 +450,7 @@
     </section>
 
     <!-- Experience Section -->
-    <section id="experience" class="experience">
+    <section id="experience" class="experience" data-load="fast">
         <div class="container">
             <h2 class="section-title">
                 <span class="lang-en">Experience</span>
@@ -633,7 +670,12 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xeejwqlo" method="POST">
+                    <div id="form-message" class="form-message" style="display: none;"></div>
+                    <input type="hidden" name="_to" value="arslanmertkaan09@gmail.com">
+                    <input type="hidden" name="_replyto" value="">
+                    <input type="hidden" name="_subject" value="Portfolio Contact Form">
+                    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
                     <div class="form-group">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
                     </div>
@@ -646,7 +688,7 @@
                     <div class="form-group">
                         <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">
+                    <button type="submit" class="btn btn-primary" id="submit-btn">
                         <span class="lang-en">Send Message</span>
                         <span class="lang-tr" style="display: none;">Mesaj Gönder</span>
                     </button>

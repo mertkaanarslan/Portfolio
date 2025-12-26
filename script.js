@@ -1,3 +1,24 @@
+// Scroll to top on page load/refresh
+window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+});
+
+// Also scroll to top when page is shown (back/forward navigation)
+window.addEventListener('pageshow', (event) => {
+    if (event.persisted) {
+        window.scrollTo(0, 0);
+    }
+});
+
+// Scroll to top immediately on page load
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+        window.scrollTo(0, 0);
+    });
+} else {
+    window.scrollTo(0, 0);
+}
+
 // Mobile Menu Toggle
 const hamburger = document.querySelector('.hamburger');
 const navMenu = document.querySelector('.nav-menu');
@@ -85,10 +106,10 @@ window.addEventListener('scroll', () => {
     lastScroll = currentScroll;
 });
 
-// Intersection Observer for Animations
+// Intersection Observer for Animations - Optimized for faster loading
 const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
+    threshold: 0.01, // Trigger earlier
+    rootMargin: '0px 0px 100px 0px' // Start animation 100px before element is visible
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -96,19 +117,48 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.style.opacity = '1';
             entry.target.style.transform = 'translateY(0)';
+            // Stop observing once animated
+            observer.unobserve(entry.target);
         }
     });
 }, observerOptions);
 
+// Separate observer for timeline items (faster)
+const timelineObserverOptions = {
+    threshold: 0.01,
+    rootMargin: '0px 0px 150px 0px' // Even earlier for timeline
+};
+
+const timelineObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            timelineObserver.unobserve(entry.target);
+        }
+    });
+}, timelineObserverOptions);
+
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.project-card, .skill-category, .education-card, .timeline-item, .stat-item');
+    // Regular elements
+    const animateElements = document.querySelectorAll('.project-card, .skill-category, .education-card, .stat-item');
     
     animateElements.forEach((el, index) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
-        el.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+        el.style.transition = `opacity 0.4s ease ${index * 0.05}s, transform 0.4s ease ${index * 0.05}s`;
         observer.observe(el);
+    });
+    
+    // Timeline items - animation
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    timelineItems.forEach((el, index) => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = `opacity 0.5s ease ${index * 0.03}s, transform 0.5s ease ${index * 0.03}s`;
+        timelineObserver.observe(el);
     });
 });
 
@@ -136,31 +186,91 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Contact Form Handling
+// Contact Form Handling with EmailJS
 const contactForm = document.getElementById('contactForm');
+const formMessage = document.getElementById('form-message');
+const submitBtn = document.getElementById('submit-btn');
+
+// Get current language
+function getCurrentLanguage() {
+    const activeLangBtn = document.querySelector('.lang-btn.active');
+    return activeLangBtn ? activeLangBtn.getAttribute('data-lang') : 'en';
+}
 
 if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+    contactForm.addEventListener('submit', async (e) => {
+        const currentLang = getCurrentLanguage();
         
-        // Get form data
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            subject: document.getElementById('subject').value,
-            message: document.getElementById('message').value
-        };
-
-        // Here you would typically send the data to a server
-        // For now, we'll just show an alert
-        alert(currentLang === 'tr' 
-            ? 'Mesajınız gönderildi! (Bu bir demo formdur - gerçek gönderim için backend entegrasyonu gerekir)'
-            : 'Message sent! (This is a demo form - backend integration required for actual submission)'
-        );
-
-        // Reset form
-        contactForm.reset();
+        // Disable submit button
+        if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = currentLang === 'tr' ? 'Gönderiliyor...' : 'Sending...';
+        }
+        
+        // Hide previous messages
+        if (formMessage) {
+            formMessage.style.display = 'none';
+        }
+        
+        // Form will submit normally to Formspree
+        // We'll show success message after redirect or handle it with JavaScript
+        
+        // Set _replyto to user's email before submit
+        const emailInput = document.getElementById('email');
+        const replyToInput = contactForm.querySelector('input[name="_replyto"]');
+        if (emailInput && replyToInput) {
+            replyToInput.value = emailInput.value;
+        }
+        
+        // Set subject with user's subject
+        const subjectInput = document.getElementById('subject');
+        const subjectHidden = contactForm.querySelector('input[name="_subject"]');
+        if (subjectInput && subjectHidden) {
+            subjectHidden.value = 'Portfolio Contact Form - ' + subjectInput.value;
+        }
+        
+        // If form has action (Formspree), let it submit normally
+        // Otherwise show error
+        const formAction = contactForm.getAttribute('action');
+        
+        if (!formAction || formAction.includes('YOUR_FORM_ID')) {
+            e.preventDefault();
+            
+            // Error message - Formspree not configured
+            if (formMessage) {
+                formMessage.style.display = 'block';
+                formMessage.className = 'form-message error';
+                formMessage.textContent = currentLang === 'tr' 
+                    ? '❌ Form henüz yapılandırılmamış. Lütfen Formspree Form ID\'nizi ekleyin veya doğrudan arslanmertkaan09@gmail.com adresine mail gönderin.'
+                    : '❌ Form not configured yet. Please add your Formspree Form ID or send an email directly to arslanmertkaan09@gmail.com';
+            }
+            
+            // Re-enable submit button
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                if (currentLang === 'tr') {
+                    submitBtn.innerHTML = '<span class="lang-en" style="display: none;">Send Message</span><span class="lang-tr">Mesaj Gönder</span>';
+                } else {
+                    submitBtn.innerHTML = '<span class="lang-en">Send Message</span><span class="lang-tr" style="display: none;">Mesaj Gönder</span>';
+                }
+            }
+        }
+        // If Formspree is configured, form will submit normally
+        // Formspree will redirect to a thank you page
     });
+    
+    // Handle Formspree redirect (if configured)
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('success') === 'true') {
+        const currentLang = getCurrentLanguage();
+        if (formMessage) {
+            formMessage.style.display = 'block';
+            formMessage.className = 'form-message success';
+            formMessage.textContent = currentLang === 'tr' 
+                ? '✅ Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağım.'
+                : '✅ Message sent successfully! I will get back to you soon.';
+        }
+    }
 }
 
 // Scroll to Top Functionality
