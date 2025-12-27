@@ -46,6 +46,12 @@
 
     <!-- Design Portfolio Hero -->
     <section class="design-hero">
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="videos/hero-background.mp4" type="video/mp4">
+            <source src="videos/hero-background.webm" type="video/webm">
+            <!-- Fallback: Eğer video yüklenemezse gradient gösterilir -->
+        </video>
+        <div class="hero-overlay"></div>
         <div class="container">
             <div class="design-hero-content">
                 <h1 class="design-title">
@@ -56,6 +62,12 @@
                     <span class="lang-en">A collection of my creative work in graphic design, digital art, and visual storytelling</span>
                     <span class="lang-tr" style="display: none;">Grafik tasarım, dijital sanat ve görsel hikaye anlatımı alanındaki yaratıcı çalışmalarımın koleksiyonu</span>
                 </p>
+                <div class="hero-buttons">
+                    <a href="#galleryGrid" class="btn btn-primary">
+                        <span class="lang-en">Explore</span>
+                        <span class="lang-tr" style="display: none;">Keşfet</span>
+                    </a>
+                </div>
             </div>
         </div>
     </section>

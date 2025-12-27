@@ -1,13 +1,41 @@
 /* Design Portfolio Specific Styles */
 
 .design-hero {
+    position: relative;
     padding: 120px 0 60px;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
     text-align: center;
+    overflow: hidden;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.design-hero .hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.design-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
 }
 
 .design-hero-content {
+    position: relative;
+    z-index: 2;
     max-width: 800px;
     margin: 0 auto;
 }
@@ -24,6 +52,16 @@
     opacity: 0.95;
     line-height: 1.6;
     animation: fadeInUp 0.8s ease 0.2s both;
+    margin-bottom: 2rem;
+}
+
+.design-hero .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.4s both;
+    margin-top: 2rem;
 }
 
 /* Filter Section */

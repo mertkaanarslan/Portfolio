@@ -562,6 +562,10 @@ section {
     border-radius: 12px;
     box-shadow: var(--shadow);
     transition: all 0.3s ease;
+    overflow: visible !important;
+    min-height: auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-card:hover {
@@ -602,6 +606,8 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
 }
 
 .tag {
@@ -611,6 +617,41 @@ section {
     font-size: 0.875rem;
     color: var(--text-color);
     font-weight: 500;
+}
+
+.project-links {
+    margin-top: 1.5rem;
+    display: flex !important;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.project-links .btn {
+    padding: 0.75rem 1.5rem !important;
+    text-decoration: none !important;
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    background: var(--primary-color) !important;
+    color: white !important;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.project-links .btn:hover {
+    background: var(--secondary-color) !important;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+.project-links .btn i {
+    font-size: 1.1rem;
 }
 
 /* Experience Section */
