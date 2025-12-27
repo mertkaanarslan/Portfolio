@@ -739,14 +739,20 @@ section {
     margin-bottom: 0.5rem;
     color: var(--text-light);
     line-height: 1.7;
+    text-indent: 0;
 }
 
 .timeline-duties li::before {
     content: '▸';
     position: absolute;
     left: 0;
+    top: 0;
     color: var(--primary-color);
     font-weight: bold;
+    line-height: 1.7;
+    display: inline-block;
+    width: 1.5rem;
+    text-align: left;
 }
 
 /* Education Section */
