@@ -76,12 +76,13 @@
     <section class="design-filters">
         <div class="container">
             <div class="filter-buttons">
-                <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+                <button class="filter-btn" onclick="filterGallery('all', this)">All</button>
                 <button class="filter-btn" onclick="filterGallery('unity2d', this)">Unity 2D Game</button>
-                <button class="filter-btn" onclick="filterGallery('illustration', this)">Illustration</button>
+                <button class="filter-btn active" onclick="filterGallery('illustration', this)">Illustration</button>
                 <button class="filter-btn" onclick="filterGallery('tattoo', this)">Tattoo</button>
                 <button class="filter-btn" onclick="filterGallery('shoe', this)">Shoe Design</button>
                 <button class="filter-btn" onclick="filterGallery('logo', this)">Logo</button>
+                <button class="filter-btn" onclick="filterGallery('coffice', this)">Coffice App Designs</button>
                 <button class="filter-btn" onclick="filterGallery('human', this)">Human Just Beings</button>
                 <button class="filter-btn" onclick="filterGallery('quit', this)">Quit</button>
             </div>
@@ -281,6 +282,58 @@
                         <img src="images/Logo/Gemini_Generated_Image_sxdofdsxdofdsxdo.png" alt="Logo Design">
                     </div>
                 </div>
+                <div class="design-item" data-category="logo">
+                    <div class="design-image-wrapper">
+                        <img src="images/Logo/Vector.png" alt="Logo Vector">
+                    </div>
+                </div>
+
+                <!-- Coffice App Designs Category -->
+                <div class="design-item" data-category="coffice">
+                    <div class="design-image-wrapper">
+                        <img src="images/Coffice App Designs/Anasayfa-1.png" alt="Coffice App - Anasayfa 1">
+                    </div>
+                </div>
+                <div class="design-item" data-category="coffice">
+                    <div class="design-image-wrapper">
+                        <img src="images/Coffice App Designs/Anasayfa.png" alt="Coffice App - Anasayfa">
+                    </div>
+                </div>
+                <div class="design-item" data-category="coffice">
+                    <div class="design-image-wrapper">
+                        <img src="images/Coffice App Designs/Giri%C5%9F Ekran%C4%B1.png" alt="Coffice App - Giriş Ekranı">
+                    </div>
+                </div>
+                <div class="design-item" data-category="coffice">
+                    <div class="design-image-wrapper">
+                        <img src="images/Coffice App Designs/Haritalar-1.png" alt="Coffice App - Haritalar 1">
+                    </div>
+                </div>
+                <div class="design-item" data-category="coffice">
+                    <div class="design-image-wrapper">
+                        <img src="images/Coffice App Designs/Haritalar.png" alt="Coffice App - Haritalar">
+                    </div>
+                </div>
+                <div class="design-item" data-category="coffice">
+                    <div class="design-image-wrapper">
+                        <img src="images/Coffice App Designs/kategori.png" alt="Coffice App - Kategori">
+                    </div>
+                </div>
+                <div class="design-item" data-category="coffice">
+                    <div class="design-image-wrapper">
+                        <img src="images/Coffice App Designs/MAKE RESERVATION - MEETING ROOM.png" alt="Coffice App - Make Reservation">
+                    </div>
+                </div>
+                <div class="design-item" data-category="coffice">
+                    <div class="design-image-wrapper">
+                        <img src="images/Coffice App Designs/register buton.png" alt="Coffice App - Register Button">
+                    </div>
+                </div>
+                <div class="design-item" data-category="coffice">
+                    <div class="design-image-wrapper">
+                        <img src="images/Coffice App Designs/Vector-1.png" alt="Coffice App - Vector 1">
+                    </div>
+                </div>
 
                 <!-- Human Just Beings Category -->
                 <div class="design-item" data-category="human">
@@ -374,6 +427,13 @@
         </div>
     </section>
 
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="modal-close" onclick="closeImageModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-caption" id="modalCaption"></div>
+    </div>
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -417,6 +477,62 @@
                 }
             });
         }
+
+        // Image Modal Functions
+        function openImageModal(imageSrc, imageAlt) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const captionText = document.getElementById('modalCaption');
+            
+            modal.style.display = 'flex';
+            modalImg.src = imageSrc;
+            captionText.innerHTML = imageAlt;
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeImageModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                closeImageModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeImageModal();
+            }
+        });
+
+        // Initialize page: Set default filter to Illustration and add click handlers to all images
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set default filter to Illustration
+            const illustrationButton = document.querySelector('.filter-btn[onclick*="illustration"]');
+            if (illustrationButton) {
+                filterGallery('illustration', illustrationButton);
+            }
+
+            // Add click handlers to all image wrappers that don't have onclick already
+            const imageWrappers = document.querySelectorAll('.design-image-wrapper');
+            imageWrappers.forEach(wrapper => {
+                // Only add if it doesn't already have onclick
+                if (!wrapper.getAttribute('onclick')) {
+                    const img = wrapper.querySelector('img');
+                    if (img) {
+                        wrapper.addEventListener('click', function() {
+                            openImageModal(img.src, img.alt);
+                        });
+                    }
+                }
+            });
+        });
     </script>
     <script src="design.js"></script>
 </body>
