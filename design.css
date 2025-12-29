@@ -102,6 +102,18 @@
     border-color: var(--primary-color);
 }
 
+.category-description {
+    margin-top: 2rem;
+    text-align: center;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1rem;
+    color: var(--text-light);
+    font-style: italic;
+    line-height: 1.6;
+}
+
 /* Design Gallery */
 .design-gallery {
     padding: 60px 0;

@@ -87,6 +87,10 @@
                 <button class="filter-btn" onclick="filterGallery('quit', this)">Quit</button>
                 <button class="filter-btn" onclick="filterGallery('logo', this)">Logo</button>
             </div>
+            <div class="category-description" id="categoryDescription">
+                <p class="lang-en">A collection of digital illustrations showcasing creative storytelling and visual expression.</p>
+                <p class="lang-tr" style="display: none;">Yaratıcı hikaye anlatımı ve görsel ifadeyi sergileyen dijital illüstrasyonlar koleksiyonu.</p>
+            </div>
         </div>
     </section>
 
@@ -473,6 +477,50 @@
 
     <script src="script.js"></script>
     <script>
+        // Category descriptions
+        const categoryDescriptions = {
+            'all': {
+                en: 'A collection of all my creative work across different design categories.',
+                tr: 'Farklı tasarım kategorilerindeki tüm yaratıcı çalışmalarımın koleksiyonu.'
+            },
+            'illustration': {
+                en: 'A collection of digital illustrations showcasing creative storytelling and visual expression.',
+                tr: 'Yaratıcı hikaye anlatımı ve görsel ifadeyi sergileyen dijital illüstrasyonlar koleksiyonu.'
+            },
+            'balloon': {
+                en: '3D Balloon Merge game design screenshots and development process visuals.',
+                tr: '3D Balloon Merge oyun tasarımı ekran görüntüleri ve geliştirme süreci görselleri.'
+            },
+            'unity2d': {
+                en: 'Unity game design projects showcasing 2D game development and visual design.',
+                tr: '2D oyun geliştirme ve görsel tasarımı sergileyen Unity oyun tasarım projeleri.'
+            },
+            'tattoo': {
+                en: 'Tattoo design artwork featuring creative and unique tattoo concepts.',
+                tr: 'Yaratıcı ve benzersiz dövme konseptlerini içeren dövme tasarım sanat eserleri.'
+            },
+            'human': {
+                en: 'Portrait and human figure illustrations capturing emotion and character.',
+                tr: 'Duygu ve karakteri yakalayan portre ve insan figürü illüstrasyonları.'
+            },
+            'coffice': {
+                en: 'Coffice mobile app design - UI/UX designs for a work-friendly cafe finder application.',
+                tr: 'Coffice mobil uygulama tasarımı - çalışma dostu kafe bulucu uygulaması için UI/UX tasarımları.'
+            },
+            'shoe': {
+                en: 'Shoe design concepts and creative footwear design explorations.',
+                tr: 'Ayakkabı tasarım konseptleri ve yaratıcı ayakkabı tasarım keşifleri.'
+            },
+            'quit': {
+                en: 'Creative design projects and experimental visual work.',
+                tr: 'Yaratıcı tasarım projeleri ve deneysel görsel çalışmalar.'
+            },
+            'logo': {
+                en: 'Logo design work showcasing brand identity and visual communication.',
+                tr: 'Marka kimliği ve görsel iletişimi sergileyen logo tasarım çalışmaları.'
+            }
+        };
+
         // Simple and reliable filter function
         function filterGallery(category, buttonElement) {
             // Remove active class from all buttons
@@ -499,6 +547,22 @@
                     item.classList.add('hidden');
                 }
             });
+
+            // Update category description
+            const descriptionEl = document.getElementById('categoryDescription');
+            if (descriptionEl && categoryDescriptions[category]) {
+                const currentLang = document.querySelector('.lang-btn.active')?.getAttribute('data-lang') || 'en';
+                const desc = categoryDescriptions[category][currentLang];
+                descriptionEl.innerHTML = `<p class="lang-en">${categoryDescriptions[category].en}</p><p class="lang-tr" style="display: none;">${categoryDescriptions[category].tr}</p>`;
+                // Update visibility based on current language
+                if (currentLang === 'tr') {
+                    descriptionEl.querySelector('.lang-en').style.display = 'none';
+                    descriptionEl.querySelector('.lang-tr').style.display = 'block';
+                } else {
+                    descriptionEl.querySelector('.lang-en').style.display = 'block';
+                    descriptionEl.querySelector('.lang-tr').style.display = 'none';
+                }
+            }
         }
 
         // Image Modal Functions
