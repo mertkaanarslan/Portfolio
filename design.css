@@ -1,5 +1,18 @@
 /* Design Portfolio Specific Styles */
 
+/* Navbar font sizes - slightly larger for design section */
+.portfolio-tab {
+    font-size: 1rem !important;
+}
+
+.nav-link {
+    font-size: 0.8rem !important;
+}
+
+.lang-btn {
+    font-size: 0.8rem !important;
+}
+
 .design-hero {
     position: relative;
     padding: 120px 0 60px;

@@ -23,6 +23,9 @@
     <link rel="manifest" href="favicon/site.webmanifest">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Navigation -->
@@ -64,33 +67,17 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <video class="hero-video" autoplay muted loop playsinline>
-            <source src="videos/hero-background.mp4" type="video/mp4">
-            <source src="videos/hero-background.webm" type="video/webm">
+        <video class="hero-video" id="heroVideo" autoplay muted playsinline>
+            <source src="videos/hero-background-2.mp4" type="video/mp4">
             <!-- Fallback: Eğer video yüklenemezse gradient gösterilir -->
         </video>
-        <div class="hero-overlay"></div>
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="lang-en">I'm Mert Kaan Arslan.</span>
-                    <span class="lang-tr" style="display: none;">Merhaba, Ben Mert Kaan Arslan</span>
-                </h1>
-                <p class="hero-subtitle">
-                    <span class="lang-en">Game Developer & Product Specialist</span>
-                    <span class="lang-tr" style="display: none;">Oyun Geliştiricisi & Ürün Uzmanı</span>
-                </p>
-                <p class="hero-description">
-                    <span class="lang-en">Passionate about game development, creating digital experiences, and building user-centric products.</span>
-                    <span class="lang-tr" style="display: none;">Oyun geliştirme, dijital deneyimler yaratma ve kullanıcı odaklı ürünler geliştirme konusunda tutkuluyum.</span>
-                </p>
-                <div class="hero-buttons">
-                    <a href="#about" class="btn btn-primary">
-                        <span class="lang-en">Explore</span>
-                        <span class="lang-tr" style="display: none;">Keşfet</span>
-                    </a>
-                </div>
             </div>
+        </div>
+        <div class="hero-button-asset-wrapper">
+            <img src="images/assets/button_asset.png" alt="Explore" class="button-asset-img">
+            <a href="#about" class="hero-button-asset-clickable"></a>
         </div>
         <div class="scroll-indicator">
             <span class="lang-en">Scroll Down</span>
@@ -118,22 +105,10 @@
                         <span class="lang-tr" style="display: none;">Profil</span>
                     </h3>
                     <p class="lang-en">
-                        Hello! I'm passionate about creating innovative digital experiences. I combine technical skills in Unity 3D/2D development with product thinking to build engaging games and user-centric applications. I am currently interested in game development.
+                        I combine Unity 3D/2D skills with product thinking to build engaging games and user-centric applications. With a background in instructional technology, I bridge the gap between technical implementation and user experience. Currently, I am focused on developing independent 3D games and web projects.
                     </p>
                     <p class="lang-tr" style="display: none;">
-                        Merhaba! Yenilikçi dijital deneyimler yaratma konusunda tutkuluyum. Unity 3D/2D geliştirme alanındaki teknik becerilerimi ürün düşüncesiyle birleştirerek etkileyici oyunlar ve kullanıcı odaklı uygulamalar geliştiriyorum. Şu anda oyun geliştirme ile ilgileniyorum.
-                    </p>
-                    <p class="lang-en">
-                        With experience spanning game development, product design, and educational technology, I am currently working on my own projects ranging from 3D game development to web applications. I enjoy bridging the gap between technical implementation and user experience, creating products that are functional. However mostly, I like creating.
-                    </p>
-                    <p class="lang-tr" style="display: none;">
-                        Oyun geliştirme, ürün tasarımı ve eğitim teknolojileri alanlarında deneyime sahip olarak, şu anda 3D oyun geliştirmeden web uygulamalarına kadar kendi projelerim üzerinde çalışıyorum. Teknik uygulama ile kullanıcı deneyimi arasındaki boşluğu kapatmayı, işlevsel ürünler yaratmayı seviyorum. Ancak çoğunlukla, yaratmayı seviyorum.
-                    </p>
-                    <p class="lang-en">
-                        My background in instructional technology enables me to understand user needs deeply and translate them into compelling digital solutions. Whether developing games with engaging mechanics or designing products with market research insights, I bring a holistic approach to every project.
-                    </p>
-                    <p class="lang-tr" style="display: none;">
-                        Eğitim teknolojileri geçmişim, kullanıcı ihtiyaçlarını derinlemesine anlamamı ve bunları etkileyici dijital çözümlere dönüştürmemi sağlıyor. İster etkileyici mekaniklerle oyunlar geliştirmek, ister pazar araştırması içgörüleriyle ürünler tasarlamak olsun, her projeye bütünsel bir yaklaşım getiriyorum.
+                        Unity 3D/2D becerilerimi ürün düşüncesiyle birleştirerek etkileyici oyunlar ve kullanıcı odaklı uygulamalar geliştiriyorum. Eğitim teknolojileri geçmişimle, teknik uygulama ile kullanıcı deneyimi arasındaki boşluğu kapatıyorum. Şu anda bağımsız 3D oyunlar ve web projeleri geliştirmeye odaklanıyorum.
                     </p>
                 </div>
             </div>
@@ -422,6 +397,40 @@
                         </div>
                     </div>
                 </div>
+                <div class="skill-category">
+                    <h3 class="skill-category-title">
+                        <span class="lang-en">Languages</span>
+                        <span class="lang-tr" style="display: none;">Diller</span>
+                    </h3>
+                    <div class="skill-items">
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>English</span>
+                                <span class="skill-percent">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%"></div>
+                            </div>
+                            <div class="skill-level" style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.25rem;">
+                                <span class="lang-en">Advanced Intermediate</span>
+                                <span class="lang-tr" style="display: none;">İleri Orta Seviye</span>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-header">
+                                <span>Italian</span>
+                                <span class="skill-percent">25%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 25%"></div>
+                            </div>
+                            <div class="skill-level" style="font-size: 0.85rem; color: var(--text-light); margin-top: 0.25rem;">
+                                <span class="lang-en">Beginner</span>
+                                <span class="lang-tr" style="display: none;">Başlangıç</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -609,24 +618,6 @@
                     </div>
                 </div>
                 <div class="timeline-item">
-                    <div class="timeline-date">Jan 2025 - June 2025</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">
-                            <span class="lang-en">Teacher</span>
-                            <span class="lang-tr" style="display: none;">Öğretmen</span>
-                        </h3>
-                        <p class="timeline-company">TACEV Educational Foundation Schools, Remote, İstanbul</p>
-                        <ul class="timeline-duties">
-                            <li class="lang-en">Implemented block-based coding educational programs for primary and secondary school students, utilizing tools such as Scratch and mBlock</li>
-                            <li class="lang-tr" style="display: none;">Scratch ve mBlock gibi araçları kullanarak ilkokul ve ortaokul öğrencileri için blok tabanlı kodlama eğitim programları uyguladım</li>
-                            <li class="lang-en">Monitored student progress and prepared engaging educational materials to foster a strong interest in technology</li>
-                            <li class="lang-tr" style="display: none;">Öğrenci ilerlemesini izledim ve teknolojiye güçlü bir ilgi uyandırmak için ilgi çekici eğitim materyalleri hazırladım</li>
-                            <li class="lang-en">Provided mentorship for students to create their own games, animations, and interactive stories</li>
-                            <li class="lang-tr" style="display: none;">Öğrencilere kendi oyunlarını, animasyonlarını ve etkileşimli hikayelerini oluşturmaları için mentorluk sağladım</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="timeline-item">
                     <div class="timeline-date">Sep 2023 - Current</div>
                     <div class="timeline-content">
                         <h3 class="timeline-title">
@@ -641,6 +632,24 @@
                             <li class="lang-tr" style="display: none;">Geri bildirim sağladım, güncel teknoloji trendlerini entegre ettim ve ders kalitesini sağlamak için eğitmenlerle işbirliği yaptım</li>
                             <li class="lang-en">Taught the development process of AI chatbots and presented recent advancements in AI</li>
                             <li class="lang-tr" style="display: none;">AI chatbotların geliştirme sürecini öğrettim ve AI'daki son gelişmeleri sundum</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Jan 2025 - June 2025</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">
+                            <span class="lang-en">Teacher</span>
+                            <span class="lang-tr" style="display: none;">Öğretmen</span>
+                        </h3>
+                        <p class="timeline-company">TACEV Educational Foundation Schools, Remote, İstanbul</p>
+                        <ul class="timeline-duties">
+                            <li class="lang-en">Implemented block-based coding educational programs for primary and secondary school students, utilizing tools such as Scratch and mBlock</li>
+                            <li class="lang-tr" style="display: none;">Scratch ve mBlock gibi araçları kullanarak ilkokul ve ortaokul öğrencileri için blok tabanlı kodlama eğitim programları uyguladım</li>
+                            <li class="lang-en">Monitored student progress and prepared engaging educational materials to foster a strong interest in technology</li>
+                            <li class="lang-tr" style="display: none;">Öğrenci ilerlemesini izledim ve teknolojiye güçlü bir ilgi uyandırmak için ilgi çekici eğitim materyalleri hazırladım</li>
+                            <li class="lang-en">Provided mentorship for students to create their own games, animations, and interactive stories</li>
+                            <li class="lang-tr" style="display: none;">Öğrencilere kendi oyunlarını, animasyonlarını ve etkileşimli hikayelerini oluşturmaları için mentorluk sağladım</li>
                         </ul>
                     </div>
                 </div>

@@ -1,3 +1,25 @@
+// Hero Video Control - Play only first 4 seconds, no loop
+document.addEventListener('DOMContentLoaded', () => {
+    const heroVideo = document.getElementById('heroVideo');
+    if (heroVideo) {
+        heroVideo.addEventListener('loadedmetadata', () => {
+            heroVideo.currentTime = 0;
+        });
+        
+        heroVideo.addEventListener('timeupdate', () => {
+            if (heroVideo.currentTime >= 4) {
+                heroVideo.pause();
+                heroVideo.currentTime = 4; // Stay at 4 seconds
+            }
+        });
+        
+        // Ensure video plays once
+        heroVideo.play().catch(err => {
+            console.log('Video autoplay prevented:', err);
+        });
+    }
+});
+
 // Scroll to top on page load/refresh
 window.addEventListener('load', () => {
     window.scrollTo(0, 0);
@@ -352,10 +374,11 @@ window.addEventListener('scroll', activateNavLink);
 const style = document.createElement('style');
 style.textContent = `
     .nav-link.active {
-        color: var(--primary-color);
+        color: #a78bfa;
     }
     .nav-link.active::after {
         width: 100%;
+        background: #a78bfa;
     }
 `;
 document.head.appendChild(style);

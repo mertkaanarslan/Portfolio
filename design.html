@@ -76,8 +76,8 @@
     <section class="design-filters">
         <div class="container">
             <div class="filter-buttons">
-                <button class="filter-btn" onclick="filterGallery('all', this)">All</button>
-                <button class="filter-btn active" onclick="filterGallery('illustration', this)">Illustration</button>
+                <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+                <button class="filter-btn" onclick="filterGallery('illustration', this)">Illustration</button>
                 <button class="filter-btn" onclick="filterGallery('balloon', this)">3D Balloon Merge</button>
                 <button class="filter-btn" onclick="filterGallery('unity2d', this)">Unity Game Design</button>
                 <button class="filter-btn" onclick="filterGallery('tattoo', this)">Tattoo</button>
@@ -88,8 +88,8 @@
                 <button class="filter-btn" onclick="filterGallery('logo', this)">Logo</button>
             </div>
             <div class="category-description" id="categoryDescription">
-                <p class="lang-en">A collection of digital illustrations showcasing creative storytelling and visual expression.</p>
-                <p class="lang-tr" style="display: none;">Yaratıcı hikaye anlatımı ve görsel ifadeyi sergileyen dijital illüstrasyonlar koleksiyonu.</p>
+                <p class="lang-en">A collection of all my creative work across different design categories.</p>
+                <p class="lang-tr" style="display: none;">Farklı tasarım kategorilerindeki tüm yaratıcı çalışmalarımın koleksiyonu.</p>
             </div>
         </div>
     </section>
@@ -598,12 +598,12 @@
             }
         });
 
-        // Initialize page: Set default filter to Illustration and add click handlers to all images
+        // Initialize page: Set default filter to All and add click handlers to all images
         document.addEventListener('DOMContentLoaded', function() {
-            // Set default filter to Illustration
-            const illustrationButton = document.querySelector('.filter-btn[onclick*="illustration"]');
-            if (illustrationButton) {
-                filterGallery('illustration', illustrationButton);
+            // Set default filter to All
+            const allButton = document.querySelector('.filter-btn[onclick*="all"]');
+            if (allButton) {
+                filterGallery('all', allButton);
             }
 
             // Add click handlers to all image wrappers that don't have onclick already
