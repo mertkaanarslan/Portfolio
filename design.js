@@ -1,8 +1,10 @@
 // Design Portfolio JavaScript
 
-// Scroll to top on page load/refresh
+// Scroll to top on page load/refresh, but don't fight an intentional #anchor link
 window.addEventListener('load', () => {
-    window.scrollTo(0, 0);
+    if (!window.location.hash) {
+        window.scrollTo(0, 0);
+    }
 });
 
 // Language toggle functionality
