@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light">
     <title>Design Portfolio - Mert Kaan Arslan</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon/favicon.png">
@@ -21,8 +22,8 @@
             <div class="nav-wrapper">
                 <div class="portfolio-tabs">
                     <a href="index.html" class="portfolio-tab">
-                        <span class="lang-en">Coding</span>
-                        <span class="lang-tr" style="display: none;">Kodlama</span>
+                        <span class="lang-en">Main Portfolio</span>
+                        <span class="lang-tr" style="display: none;">Ana Portfolyo</span>
                     </a>
                     <span class="tab-separator">|</span>
                     <a href="design.html" class="portfolio-tab active">
@@ -66,7 +67,7 @@
                     <span class="lang-tr" style="display: none;">Grafik tasarım, dijital sanat ve görsel hikaye anlatımı alanındaki yaratıcı çalışmalarımın koleksiyonu</span>
                 </p>
                 <div class="hero-buttons">
-                    <a href="#galleryGrid" class="btn btn-primary">
+                    <a href="#designFilters" class="btn btn-primary">
                         <span class="lang-en">Explore</span>
                         <span class="lang-tr" style="display: none;">Keşfet</span>
                     </a>
@@ -76,20 +77,18 @@
     </section>
 
     <!-- Filter Section -->
-    <section class="design-filters">
+    <section class="design-filters" id="designFilters">
         <div class="container">
             <div class="filter-buttons">
                 <button class="filter-btn active" onclick="filterGallery('all', this)">All</button>
+                <button class="filter-btn" onclick="filterGallery('coffice', this)">Product Design</button>
                 <button class="filter-btn" onclick="filterGallery('illustration', this)">Illustration</button>
-                <button class="filter-btn" onclick="filterGallery('balloon', this)">3D Balloon Merge</button>
                 <button class="filter-btn" onclick="filterGallery('unity2d', this)">Unity Game Design</button>
                 <button class="filter-btn" onclick="filterGallery('tattoo', this)">Tattoo</button>
                 <button class="filter-btn" onclick="filterGallery('human', this)">Human Just Beings</button>
-                <button class="filter-btn" onclick="filterGallery('coffice', this)">Coffice App Designs</button>
                 <button class="filter-btn" onclick="filterGallery('shoe', this)">Shoe Design</button>
                 <button class="filter-btn" onclick="filterGallery('quit', this)">Quit</button>
                 <button class="filter-btn" onclick="filterGallery('logo', this)">Logo</button>
-                <button class="filter-btn" onclick="filterGallery('sugargo', this)">Sugar Go Unity 2D</button>
             </div>
             <div class="category-description" id="categoryDescription">
                 <p class="lang-en">A collection of all my creative work across different design categories.</p>
@@ -149,32 +148,6 @@
                     </div>
                 </div>
 
-                <!-- 3D Balloon Merge Category -->
-                <div class="design-item" data-category="balloon">
-                    <div class="design-image-wrapper">
-                        <img src="images/3D%20Balloon%20Merge/WhatsApp%20Image%202025-12-27%20at%2014.00.37.jpeg" loading="lazy" alt="3D Balloon Merge 1">
-                    </div>
-                </div>
-                <div class="design-item" data-category="balloon">
-                    <div class="design-image-wrapper">
-                        <img src="images/3D%20Balloon%20Merge/WhatsApp%20Image%202025-12-27%20at%2014.00.54.jpeg" loading="lazy" alt="3D Balloon Merge 2">
-                    </div>
-                </div>
-                <div class="design-item" data-category="balloon">
-                    <div class="design-image-wrapper">
-                        <img src="images/3D%20Balloon%20Merge/WhatsApp%20Image%202025-12-27%20at%2014.01.33.jpeg" loading="lazy" alt="3D Balloon Merge 3">
-                    </div>
-                </div>
-                <div class="design-item" data-category="balloon">
-                    <div class="design-image-wrapper">
-                        <img src="images/3D%20Balloon%20Merge/WhatsApp%20Image%202025-12-27%20at%2014.01.57.jpeg" loading="lazy" alt="3D Balloon Merge 4">
-                    </div>
-                </div>
-                <div class="design-item" data-category="balloon">
-                    <div class="design-image-wrapper">
-                        <img src="images/3D%20Balloon%20Merge/WhatsApp%20Image%202025-12-27%20at%2014.02.25.jpeg" loading="lazy" alt="3D Balloon Merge 5">
-                    </div>
-                </div>
 
                 <!-- Unity Game Design Category -->
                 <div class="design-item" data-category="unity2d">
@@ -252,50 +225,45 @@
                     </div>
                 </div>
 
-                <!-- Coffice App Designs Category -->
+                <!-- Coffice Product Design Category -->
                 <div class="design-item" data-category="coffice">
                     <div class="design-image-wrapper">
-                        <img src="images/Coffice App Designs/Anasayfa-1.png" loading="lazy" alt="Coffice App - Anasayfa 1">
+                        <img src="images/coffice/coffice-01-home.jpg" loading="lazy" alt="Coffice - Home, nearby cafes with smart filters">
                     </div>
                 </div>
                 <div class="design-item" data-category="coffice">
                     <div class="design-image-wrapper">
-                        <img src="images/Coffice App Designs/Anasayfa.png" loading="lazy" alt="Coffice App - Anasayfa">
+                        <img src="images/coffice/coffice-02-map.jpg" loading="lazy" alt="Coffice - Map view with cafe detail sheet">
                     </div>
                 </div>
                 <div class="design-item" data-category="coffice">
                     <div class="design-image-wrapper">
-                        <img src="images/Coffice App Designs/Giri%C5%9F Ekran%C4%B1.png" loading="lazy" alt="Coffice App - Giriş Ekranı">
+                        <img src="images/coffice/coffice-03-cafe-info.jpg" loading="lazy" alt="Coffice - Cafe detail, Wi-Fi/noise/comfort/outlets">
                     </div>
                 </div>
                 <div class="design-item" data-category="coffice">
                     <div class="design-image-wrapper">
-                        <img src="images/Coffice App Designs/Haritalar-1.png" loading="lazy" alt="Coffice App - Haritalar 1">
+                        <img src="images/coffice/coffice-04-reservation.jpg" loading="lazy" alt="Coffice - Seat reservation by date and time block">
                     </div>
                 </div>
                 <div class="design-item" data-category="coffice">
                     <div class="design-image-wrapper">
-                        <img src="images/Coffice App Designs/Haritalar.png" loading="lazy" alt="Coffice App - Haritalar">
+                        <img src="images/coffice/coffice-05-favorites.jpg" loading="lazy" alt="Coffice - Saved favorite cafes">
                     </div>
                 </div>
                 <div class="design-item" data-category="coffice">
                     <div class="design-image-wrapper">
-                        <img src="images/Coffice App Designs/kategori.png" loading="lazy" alt="Coffice App - Kategori">
+                        <img src="images/coffice/coffice-06-passport.jpg" loading="lazy" alt="Coffice - Gamified Coffee Passport loyalty">
                     </div>
                 </div>
                 <div class="design-item" data-category="coffice">
                     <div class="design-image-wrapper">
-                        <img src="images/Coffice App Designs/MAKE RESERVATION - MEETING ROOM.png" loading="lazy" alt="Coffice App - Make Reservation">
+                        <img src="images/coffice/coffice-07-my-reservations.jpg" loading="lazy" alt="Coffice - My reservations with check-in status">
                     </div>
                 </div>
                 <div class="design-item" data-category="coffice">
                     <div class="design-image-wrapper">
-                        <img src="images/Coffice App Designs/register buton.png" loading="lazy" alt="Coffice App - Register Button">
-                    </div>
-                </div>
-                <div class="design-item" data-category="coffice">
-                    <div class="design-image-wrapper">
-                        <img src="images/Coffice App Designs/Vector-1.png" loading="lazy" alt="Coffice App - Vector 1">
+                        <img src="images/coffice/coffice-08-discounts.jpg" loading="lazy" alt="Coffice - Unlockable discount list">
                     </div>
                 </div>
 
@@ -455,12 +423,6 @@
                     </div>
                 </div>
 
-                <!-- Sugar Go Unity 2D Category -->
-                <div class="design-item" data-category="sugargo">
-                    <div class="design-image-wrapper">
-                        <img src="images/Sugar%20Go%20Unity%202D/sugar%20go.png" loading="lazy" alt="Sugar Go Unity 2D">
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -498,10 +460,6 @@
                 en: 'A collection of digital illustrations showcasing creative storytelling and visual expression.',
                 tr: 'Yaratıcı hikaye anlatımı ve görsel ifadeyi sergileyen dijital illüstrasyonlar koleksiyonu.'
             },
-            'balloon': {
-                en: '3D Balloon Merge game design screenshots and development process visuals.',
-                tr: '3D Balloon Merge oyun tasarımı ekran görüntüleri ve geliştirme süreci görselleri.'
-            },
             'unity2d': {
                 en: 'Unity game design projects showcasing 2D game development and visual design.',
                 tr: '2D oyun geliştirme ve görsel tasarımı sergileyen Unity oyun tasarım projeleri.'
@@ -515,8 +473,8 @@
                 tr: 'Duygu ve karakteri yakalayan portre ve insan figürü illüstrasyonları.'
             },
             'coffice': {
-                en: 'Coffice mobile app design - UI/UX designs for a work-friendly cafe finder application.',
-                tr: 'Coffice mobil uygulama tasarımı - çalışma dostu kafe bulucu uygulaması için UI/UX tasarımları.'
+                en: 'Product Design — end-to-end UX/UI for Coffice, a work-friendly cafe discovery and reservation app.',
+                tr: 'Ürün Tasarımı — çalışma dostu kafe keşif ve rezervasyon uygulaması Coffice için uçtan uca UX/UI.'
             },
             'shoe': {
                 en: 'Shoe design concepts and creative footwear design explorations.',
@@ -529,10 +487,6 @@
             'logo': {
                 en: 'Logo design work showcasing brand identity and visual communication.',
                 tr: 'Marka kimliği ve görsel iletişimi sergileyen logo tasarım çalışmaları.'
-            },
-            'sugargo': {
-                en: 'Sugar Go Unity 2D - A fun and colorful 2D game developed in Unity.',
-                tr: 'Sugar Go Unity 2D - Unity ile geliştirilen eğlenceli ve renkli bir 2D oyun.'
             }
         };
 
@@ -613,12 +567,20 @@
             }
         });
 
-        // Initialize page: Set default filter to All and add click handlers to all images
+        // Initialize page: apply filter from URL (?filter=coffice) if present, otherwise default to All
         document.addEventListener('DOMContentLoaded', function() {
-            // Set default filter to All
-            const allButton = document.querySelector('.filter-btn[onclick*="all"]');
-            if (allButton) {
-                filterGallery('all', allButton);
+            const requestedFilter = new URLSearchParams(window.location.search).get('filter');
+            const requestedButton = requestedFilter
+                ? document.querySelector(`.filter-btn[onclick*="'${requestedFilter}'"]`)
+                : null;
+
+            if (requestedFilter && requestedButton) {
+                filterGallery(requestedFilter, requestedButton);
+            } else {
+                const allButton = document.querySelector('.filter-btn[onclick*="all"]');
+                if (allButton) {
+                    filterGallery('all', allButton);
+                }
             }
 
             // Add click handlers to all image wrappers that don't have onclick already

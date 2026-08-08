@@ -145,67 +145,16 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Separate observer for timeline items (faster)
-const timelineObserverOptions = {
-    threshold: 0.01,
-    rootMargin: '0px 0px 150px 0px' // Even earlier for timeline
-};
-
-const timelineObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-            timelineObserver.unobserve(entry.target);
-        }
-    });
-}, timelineObserverOptions);
-
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    // Regular elements
-    const animateElements = document.querySelectorAll('.project-card, .skill-category, .education-card, .stat-item');
-    
+    const animateElements = document.querySelectorAll('.project-card, .education-card');
+
     animateElements.forEach((el, index) => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(30px)';
         el.style.transition = `opacity 0.4s ease ${index * 0.05}s, transform 0.4s ease ${index * 0.05}s`;
         observer.observe(el);
     });
-    
-    // Timeline items - animation
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    
-    timelineItems.forEach((el, index) => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = `opacity 0.5s ease ${index * 0.03}s, transform 0.5s ease ${index * 0.03}s`;
-        timelineObserver.observe(el);
-    });
-});
-
-// Skill Bars Animation
-const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const skillBars = entry.target.querySelectorAll('.skill-progress');
-            skillBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 100);
-            });
-            skillObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-document.addEventListener('DOMContentLoaded', () => {
-    const skillsSection = document.querySelector('.skills-grid');
-    if (skillsSection) {
-        skillObserver.observe(skillsSection);
-    }
 });
 
 // Contact Form Handling with EmailJS
