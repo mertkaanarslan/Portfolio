@@ -1,16 +1,16 @@
 /* Design Portfolio Specific Styles */
 
-/* Navbar font sizes - slightly larger for design section */
+/* Navbar font sizes - slightly larger for design section, still fluid */
 .portfolio-tab {
-    font-size: 1rem !important;
+    font-size: clamp(0.95rem, 0.65rem + 0.6vw, 1.4rem) !important;
 }
 
 .nav-link {
-    font-size: 0.8rem !important;
+    font-size: clamp(0.75rem, 0.55rem + 0.35vw, 1rem) !important;
 }
 
 .lang-btn {
-    font-size: 0.8rem !important;
+    font-size: clamp(0.7rem, 0.5rem + 0.3vw, 0.9rem) !important;
 }
 
 .design-hero {
